@@ -21,7 +21,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   CONFIG_FILE: config/lean/bcm27xx/rpi4-lean-target.config
-  DIY_SH: scripts/lean-openwrt.sh
+  DIY_SH: scripts/lean.sh
   IPV6MOD_IN_FIRMWARE: true
   KMODS_IN_FIRMWARE: true
   UPLOAD_RCLONE: true
@@ -94,6 +94,7 @@ jobs:
             echo "CONFIG_ALL_KMODS=y" >> .config
         fi
         make defconfig
+        cat .config
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
