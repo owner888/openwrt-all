@@ -94,7 +94,7 @@ jobs:
             echo "CONFIG_ALL_KMODS=y" >> .config
         fi
         make defconfig
-        cat .config
+        #cat .config
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
